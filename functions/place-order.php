@@ -11,7 +11,7 @@
             $pincode = $con->real_escape_string($_POST['pincode']);
             $address = $con->real_escape_string($_POST['address']);
             $payment_mode = ($_POST['payment_mode']);
-            $payment_id = ($_POST['payment_id']);
+            // $payment_id = ($_POST['payment_id']);
 
             // Verifier si tout les champ sont remplis
             if($name == "" || $email == "" || $phone == "" || $pincode == "" || $address == ""){

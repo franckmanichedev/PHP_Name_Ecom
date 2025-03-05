@@ -110,7 +110,7 @@
         }
         $update_query->close();
     } else if(isset($_POST['delete_category_btn'])){
-        $category_id = $con->real_escape_string(($_POST['category_id']));
+        $category_id = $_POST['category_id'];
 
         $category_query = $con->prepare("SELECT * FROM category WHERE id=?");
         $category_query->bind_param("i", $category_id);
@@ -152,7 +152,7 @@
 
         // Si le checkbox est coché on insere 1 sinon 0
         $statut = isset($_POST["statut"]) ? "1":"0";
-        $trending = isset($_POST["trending"]) ? "1":"0";
+        $trending = isset($_POST["trending"]) ? "0":"1";
 
         $image = $_FILES['image']['name'];
         $path = "../uploads";
@@ -227,7 +227,7 @@
 
         // Si le checkbox est coché on insere 1 sinon 0
         $statut = isset($_POST["statut"]) ? "1":"0";
-        $trending = isset($_POST["trending"]) ? "1":"0";
+        $trending = isset($_POST["trending"]) ? "0":"1";
 
         $path = "../uploads";
         

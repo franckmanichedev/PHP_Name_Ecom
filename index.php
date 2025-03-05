@@ -18,9 +18,9 @@
                             if(mysqli_num_rows($trendingProduct) > 0){
                                 foreach($trendingProduct as $item){
                                     ?>
-                                        <div class="item">
+                                        <div class="item img-hover">
                                             <a href="product-view.php?product=<?= $item['slug'];?>">
-                                                <div class="card shadow-dark shadow ">
+                                                <div class="card shadow-dark shadow">
                                                     <div class="card-header">
                                                         <div class="img">
                                                             <img src="uploads/<?= $item['image'];?>" alt="Product image" class="w-100" height="400px">
@@ -119,7 +119,7 @@
 
         $("#owl-demo").owlCarousel({
 
-            autoPlay: 2000, //Set AutoPlay to 3 seconds
+            autoPlay: 3000, //Set AutoPlay to 3 seconds
 
             items : 4,
             itemsDesktop : [1199,3],

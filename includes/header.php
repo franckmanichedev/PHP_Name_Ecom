@@ -20,6 +20,10 @@
             width: 100%;
             height: 250px;
         }
+        .img-hover:hover{
+            transition: 0.5s;
+            transform: scale(1.05);
+        }
     </style>
 
     <!-- ALERTIFY CSS -->

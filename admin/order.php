@@ -45,9 +45,11 @@
                                         }
                                     } else {
                                         ?>
-                                            <tr>
-                                                <td colspan="5" class="text-danger text-center">Aucune donnee</td>
-                                            </tr>
+                                            <!-- <tr> -->
+                                                <!-- <td class="text-danger text-center"> -->
+                                                    <div class="mt-5 mb-3 alert alert-danger"><em>Pas de commande pour l'instant...</em></div>
+                                                <!-- </td> -->
+                                            <!-- </tr> -->
                                         <?php
                                     }
                                 ?>

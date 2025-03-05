@@ -97,6 +97,7 @@
                                 <div class="">
                                     <input type="hidden" name="payment_mode" value="COD">
                                     <button type="submit" name="place_order_btn" class="btn btn-primary w-100 p-2 fw-bold fs-5">Confirmer et acheter | COD</button>
+                                    <!-- Integration d'un moyen de payement PayPal -->
                                     <div id="paypal-button-container" class="mt-2"></div>
                                     <p id="result-message"></p>
                                 </div>

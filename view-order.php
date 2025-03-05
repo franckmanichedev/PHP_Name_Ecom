@@ -48,7 +48,7 @@
                         <div class="card">
                             <div class="card-header d-flex align-items-center justify-content-between bg-primary text-white">
                                 <h4 class="text-center">Voir commande</h4>
-                                <a href="my-order.php" class="btn btn-warning"> <i class="bi bi-reply-fill"></i> Retour</a>
+                                <a href="my-order.php" class="btn btn-warning"><i class="bi bi-reply-fill"></i> Retour</a>
                             </div>
                             <div class="card-body">
                                 <div class="row">

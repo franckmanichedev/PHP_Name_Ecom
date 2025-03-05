@@ -38,7 +38,7 @@
     if (!function_exists('getIdActive')){
         function getIdActive($table, $id){
             global $con;
-            $query = "SELECT * FROM $table WHERE id = ? AND statut = '0' ";
+            $query = "SELECT * FROM $table WHERE id = ? AND statut = '0'";
             $stmt = $con->prepare($query);
             $stmt->bind_param("i", $id);
             $stmt->execute();
@@ -51,7 +51,7 @@
     if (!function_exists('getProductByCategory')){
         function getProductByCategory($category_id){
             global $con;
-            $query = "SELECT * FROM products WHERE category_id = ? AND statut = '1'";
+            $query = "SELECT * FROM products WHERE category_id = ? AND statut = '0'";
             $stmt = $con->prepare($query);
             $stmt->bind_param("i", $category_id);
             $stmt->execute();

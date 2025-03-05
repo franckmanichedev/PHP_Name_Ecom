@@ -28,6 +28,12 @@
                     </div>
                 </div>
                 <li class="nav-item">
+                    <a href="" class="nav-link">
+                        <i class="bi bi-person"></i>
+                        <?= $_SESSION['auth_user']['nom'] ?>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nc-icon nc-zoom-split"></i>
                         <span class="d-lg-block">&nbsp;Search</span>

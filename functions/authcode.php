@@ -85,9 +85,13 @@
 
             // On verifie si l'utilisateur a les droit d'administrateur
             if($role == 1){
-                redirect("../admin/index.php", "Bienvenue dans votre dashboard");
+                $_SESSION['message'] = "Bienvenue dans votre dashboard !";
+                header('Location: ../admin/index.php');
+                // redirect("../admin/index.php", "Bienvenue dans votre dashboard");
             } else {
-                redirect("../index.php", "Connexion a votre compte reussi");
+                $_SESSION['message'] = "Connexion a votre compte reussi !";
+                header('Location: ../index.php');
+                // redirect("../index.php", "Connexion a votre compte reussi");
             }
             
         } else {

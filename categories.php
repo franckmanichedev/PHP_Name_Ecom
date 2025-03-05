@@ -28,7 +28,7 @@
                         if(mysqli_num_rows($category) > 0){
                             foreach($category as $item){
                                 ?>
-                                    <div class="col-lg-3 mb-2">
+                                    <div class="col-md-4 col-lg-3 mb-2">
                                         <a href="products.php?category=<?= $item['slug']; ?>">
                                             <div class="card shadow-dark shadow">
                                                 <div class="card-body">

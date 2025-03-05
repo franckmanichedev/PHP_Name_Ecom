@@ -9,21 +9,25 @@
             $scope = $_POST['scope'];
         
             switch($scope){
+                // Ajouter un produit dans le panier 
                 case "add":
                     $prod_id = $_POST['prod_id'];
                     $prod_qte = $_POST['prod_qte'];
 
                     $user_id = $_SESSION['auth_user']['user_id'];
 
+                    // Verififier si le produit existe deja dans le panier
                     $check_product_cart_stmt = $con->prepare("SELECT * FROM carts WHERE product_id = ? AND user_id = ?");
                     $check_product_cart_stmt->bind_param("ii", $prod_id, $user_id);
                     $check_product_cart_stmt->execute();
                     $check_product_cart_result = $check_product_cart_stmt->get_result();
 
                     if(($check_product_cart_result->num_rows) > 0){
-                        echo "existing";
+                        // Si le produit existe
+                        echo "Deja ajouté !";
                     } else {
 
+                        // Sinon ajouter le produit dans le panier
                         $insert_query = $con->prepare("INSERT INTO carts(user_id, product_id, product_qte) VALUE (?, ?, ?)");
                         $insert_query->bind_param("iii", $user_id, $prod_id, $prod_qte);
     
