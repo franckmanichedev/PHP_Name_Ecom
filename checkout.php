@@ -9,6 +9,13 @@
     if(mysqli_num_rows($cartItems) == 0){
         header('Location: index.php');
     }
+
+    require 'vendor/autoload.php';
+    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+    $dotenv->load();
+
+    $paypalClientId = $_ENV['PAYPAL_CLIENT_ID'];
+    $paypalSecret = $_ENV['PAYPAL_SECRET'];
 ?>
 
     <div class="py-3 bg-primary">
@@ -42,18 +49,22 @@
                                     <div class="col-lg-6 mt-3">
                                         <label  class="form-label">Email</label>
                                         <input type="email" name="email" id="email" class="form-control" placeholder="Entrer votre email">
+                                        <small class="text-danger email"></small>
                                     </div>
                                     <div class="col-lg-6 mt-3">
                                         <label class="form-label">Telephone</label>
                                         <input type="text" name="phone" id="phone" class="form-control" id="inputPassword4" placeholder="Entrer votre numero de telephone">
+                                        <small class="text-danger phone"></small>
                                     </div>
                                     <div class="col-lg-6 mt-3">
                                         <label  class="form-label">Code pin</label>
                                         <input type="text" name="pincode" id="pincode" class="form-control"  placeholder="Entrer votre code pin">
+                                        <small class="text-danger pincode"></small>
                                     </div>
                                     <div class="col-lg-12 mt-3">
                                         <label for="">Adresse</label>
                                         <textarea rows="5" name="address" id="address" placeholder="Entrer la description de categorie ici" class="form-control"></textarea>
+                                        <small class="text-danger address"></small>
                                     </div>
                                 </div>
                             </div>
@@ -92,7 +103,7 @@
                                 <hr>
                                 <div class="row">
                                     <p class="col-md-7">Prix total: </p>
-                                    <h5 class="col-md-5">Rs <span class="fw-bold"><?= $totalprice ?></span></h5>
+                                    <h5 class="col-md-5">Rs <span class="fw-bold"><?= $totalprice = isset($totalprice) && is_numeric($totalprice) ? $totalprice : 0; ?></span></h5>
                                 </div>
                                 <div class="">
                                     <input type="hidden" name="payment_mode" value="COD">
@@ -113,10 +124,7 @@
 
 <!-- Integration du moyen de payment PayPal -->
 
-    <script
-        src="https://www.paypal.com/sdk/js?client-id=test&buyer-country=US&currency=USD&components=buttons&enable-funding=card&disable-funding=venmo,paylater"
-        data-sdk-integration-source="developer-studio"
-    >
+    <script src="https://www.paypal.com/sdk/js?client-id=<?= $paypalClientId ?>&currency=USD"> >
     </script>
     <script>
         window.paypal
@@ -155,6 +163,7 @@
                     $('.address').text('');
                 }
                 if(name.length == 0 || email.length == 0 || phone.length == 0 || pincode.length == 0 || address.length == 0){
+                    alert('Veuillez remplir tous les champs obligatoires.');
                     return false;
                 } else {
                     return true;
@@ -166,9 +175,6 @@
                 color: "gold",
                 label: "paypal",
             },
-            // message: {
-            //     amount: 100,
-            // } ,
 
             createOrder: function(data, actions) {
                 return actions.order.create({
@@ -184,21 +190,6 @@
 
             onApprove: function(data, actions) {
                 return actions.order.capture().then(function(details) {
-                    // // Show a success message to the buyer
-                    // alert('Transaction completed by ' + details.payer.name.given_name);
-
-                    // // OPTIONAL: Call your server to save the transaction
-                    // return fetch('/paypal-transaction-complete', {
-                    //     method: 'POST',
-                    //     url: 'functions/place-order.php',
-                    //     headers: {
-                    //         'content-type': 'application/json'
-                    //     },
-                    //     body: JSON.stringify({
-                    //         orderID: data.orderID
-                    //     })
-                    // });
-                    
                     var name = $('#name').val();
                     var email = $('#email').val();
                     var phone = $('#phone').val();
@@ -211,10 +202,11 @@
                         'phone': phone,
                         'pincode': pincode,
                         'address': address,
-                        'payment_mode': Payer par PayPal,
+                        'payment_mode': 'Payer-par-PayPal',
                         'payment_id': data.orderID,
                         'place_order_btn': true,
-                    }
+                    };
+                    
                     $.ajax({
                         method: "POST",
                         url: "functions/place-order.php",

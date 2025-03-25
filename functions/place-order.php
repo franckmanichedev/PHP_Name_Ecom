@@ -28,7 +28,9 @@
 
             $total_price = 0;
             foreach($cartItems as $item){
-                $total_price += $item['selling_price'] * $item['product_qte'];
+                $total_price += $item['selling_price'] * $item[
+                    'product_qte'
+                ];
             }
 
             $tracking_no = "skillsform".rand(1111,9999).substr($phone, 2);
@@ -79,7 +81,9 @@
                     $_SESSION['message'] = "Commande passe avec succes";
                     header('Location: ../my-order.php');
                     die();
-                } else { 
+                } else {
+                    $_SESSION['message'] = "Commande passe avec succes";
+                    header('Location: "../payment.php?tracking_no='.$tracking_no.'"');
                     echo 200;
                 }
             }

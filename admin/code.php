@@ -128,11 +128,11 @@
             if(file_exists('../uploads/'.$image)){
                 unlink('../uploads/'.$image);
             }
-            redirect("category.php", "Category supprimer avec success !");
-            // echo 200;
+            // redirect("category.php", "Category supprimer avec success !");
+            echo 200;
         } else {
-            redirect("category.php", "Erreur lors du chargement du fichier !");
-            // echo 500;
+            // redirect("category.php", "Erreur lors du chargement du fichier !");
+            echo 500;
         }
     } 
     
@@ -278,11 +278,11 @@
             if(file_exists('../uploads/'.$image)){
                 unlink('../uploads/'.$image);
             }
-            redirect("product.php", "Produit supprimer avec success !");
-            // echo 200;
+            // redirect("product.php", "Produit supprimer avec success !");
+            echo 200;
         } else {
-            redirect("product.php", "Erreur lors du chargement du fichier !");
-            // echo 500;
+            // redirect("product.php", "Erreur lors du chargement du fichier !");
+            echo 500;
         }
     } else if(isset($_POST['update_order_btn'])){
         $tracking_no = $_POST['tracking_no'];

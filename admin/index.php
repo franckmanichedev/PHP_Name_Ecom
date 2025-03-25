@@ -73,23 +73,23 @@
                         </div>
                     </div>
                     <div class="col-xl-3 col-sm-6">
-                    <div class="card">
-                        <div class="card-header p-2 ps-3">
-                            <div class="d-flex justify-content-between">
-                                <div>
-                                    <p class="text-sm mb-0 text-capitalize">Sales</p>
-                                    <h4 class="mb-0">$103,430</h4>
-                                </div>
-                                <div class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
-                                    <i class="bi bi-bag-check opacity-10"></i>
+                        <div class="card">
+                            <div class="card-header p-2 ps-3">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <p class="text-sm mb-0 text-capitalize">Sales</p>
+                                        <h4 class="mb-0">$103,430</h4>
+                                    </div>
+                                    <div class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
+                                        <i class="bi bi-bag-check opacity-10"></i>
+                                    </div>
                                 </div>
                             </div>
+                            <hr class="dark horizontal my-0">
+                            <div class="card-footer p-2 ps-3">
+                                <p class="mb-0 text-sm"><span class="text-success font-weight-bolder">+5% </span>than yesterday</p>
+                            </div>
                         </div>
-                        <hr class="dark horizontal my-0">
-                        <div class="card-footer p-2 ps-3">
-                            <p class="mb-0 text-sm"><span class="text-success font-weight-bolder">+5% </span>than yesterday</p>
-                        </div>
-                    </div>
                     </div>
                 </div>
             </div>

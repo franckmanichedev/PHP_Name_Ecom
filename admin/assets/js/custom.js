@@ -1,6 +1,6 @@
 $(document).ready(function() {
     console.log("Document ready");
-    $(document).on('click', 'delete_product_btn', function(e){
+    $(document).on('click', '.delete_product_btn', function(e){
         e.preventDefault();
         console.log("Delete button clicked");
 
@@ -51,7 +51,7 @@ $(document).ready(function() {
         });
     }); 
 
-    $(document).on('click', 'delete_category_btn', function(e){
+    $(document).on('click', '.delete_category_btn', function(e){
         e.preventDefault();
         console.log("Delete button clicked");
 
